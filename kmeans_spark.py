@@ -2,7 +2,6 @@
 """
 K-Means via PySpark RDD MapReduce
 ===================================
-The Map and Reduce logic is preserved exactly:
   MAP    : assign each point to its nearest centroid
   REDUCE : compute new centroid = mean of all assigned points
 
@@ -18,13 +17,12 @@ import numpy as np
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# MAP  (mirrors mapper.py logic)
+# MAP 
 # ─────────────────────────────────────────────────────────────────────────────
 def mapper(point, centroids):
     """
     Given a data point (tuple of floats) and a list of centroid arrays,
-    return (cluster_id, point) — identical output to mapper.py's
-      print(f"{nearest}\\t{','.join(map(str, features))}")
+    return (cluster_id, point)
     """
     min_dist  = float("inf")
     nearest   = -1
@@ -37,13 +35,12 @@ def mapper(point, centroids):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# REDUCE  (mirrors reducer.py logic)
+# REDUCE 
 # ─────────────────────────────────────────────────────────────────────────────
 def reducer(cluster_id, points):
     """
     Given a cluster_id and an iterable of points assigned to it,
-    return (cluster_id, new_centroid) — identical to reducer.py's
-      print(f"{current_cluster}\\t{','.join(map(str, centroid))}")
+    return (cluster_id, new_centroid) 
     """
     point_list  = list(points)
     n           = len(point_list)
