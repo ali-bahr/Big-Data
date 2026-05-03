@@ -2,8 +2,6 @@
 """
 K-Means via PySpark RDD MapReduce
 ===================================
-Replaces the Hadoop Streaming mapper.py + reducer.py pair.
-
 The Map and Reduce logic is preserved exactly:
   MAP    : assign each point to its nearest centroid
   REDUCE : compute new centroid = mean of all assigned points
