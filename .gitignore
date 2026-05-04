@@ -4,3 +4,4 @@ PreProcessedData/*
 PreProcessdData/*
 SparkKmeans/*
 *.pptx
+__pycache__/*
