@@ -191,10 +191,6 @@ A heatmap of the top 30 dual-citizenship pairs was produced.
   <br><em>Top 30 dual-citizenship pairs among professional football players</em>
 </p>
 
-<p align="center">
-  <img src="readme_assets/dual_citizenship_all.png" alt="Dual Citizenship – All Countries" width="80%"/>
-  <br><em>Full dual-citizenship heatmap across all nationalities</em>
-</p>
 
 > See [`citizenshiped_players.ipynb`](citizenshiped_players.ipynb)
 
@@ -252,10 +248,16 @@ sklearn's `KNeighborsClassifier` trained on PySpark-preprocessed features. PySpa
   <br><em>Confusion matrix – KNN (PySpark ML) on test set (5,642 samples)</em>
 </p>
 
-<p align="center">
-  <img src="readme_assets/knn_classification_report.png" alt="KNN Classification Report" width="60%"/>
-  <br><em>Classification report – KNN (PySpark ML)</em>
-</p>
+ Classification Report:
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|----------:|-------:|---------:|--------:|
+| No Transfer | 0.72 | 0.82 | 0.77 | 4035 |
+| Transfer | 0.31 | 0.20 | 0.24 | 1607 |
+| Accuracy |  |  | 0.65 | 5642 |
+| Macro avg | 0.52 | 0.51 | 0.51 | 5642 |
+| Weighted avg | 0.60 | 0.65 | 0.62 | 5642 |
+
 
 The model struggles to detect actual transfers (minority class) due to strong class imbalance (~72% No Transfer vs ~28% Transfer).
 
@@ -270,10 +272,10 @@ A pure PySpark RDD-based KNN with no external ML library:
 
 Due to computational intensity, evaluation was performed on a subset (1,000 train / 200 val / 100 test).
 
-| Split | Accuracy | F1-Score |
-|-------|----------|----------|
-| Validation | 0.6200 | 0.2963 |
-| **Test** | **0.6300** | **0.1395** |
+| Split | Accuracy |
+|-------|----------|
+| Validation | 0.6200 |
+| **Test** | **0.6300** |
 
 Performance is broadly consistent with Model 1, confirming the bottleneck is class imbalance rather than implementation choice.
 
