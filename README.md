@@ -1,4 +1,4 @@
-# Distributed Football Transfer Market Analytics & Player Profiling
+# Goalzo Analytics A Distributed Football Transfer Market Analytics & Player Profiling
 
 <p align="center">
   <img src="readme_assets/banner.png" alt="Football Analytics Banner" width="80%"/>
